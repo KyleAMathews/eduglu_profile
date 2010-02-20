@@ -6,9 +6,9 @@
  * @return
  *   An array with keys 'name' and 'description' describing this profile.
  */
-function eduglue_profile_details() {
+function eduglu_installer_profile_details() {
   return array(
-    'name' => 'Eduglue',
+    'name' => 'Eduglu',
     'description' => 'Social media glue for education.'
   );
 }
@@ -19,7 +19,7 @@ function eduglue_profile_details() {
  * @return
  *  An array of modules to be enabled.
  */
-function eduglue_profile_modules() {
+function eduglu_installer_profile_modules() {
   return array(
     /* optional core */
     /* other contrib */ 
@@ -37,11 +37,11 @@ function eduglue_profile_modules() {
 /**
 * Implementation of hook_profile_tasks().
 */
-function eduglue_profile_tasks() {
+function eduglu_installer_profile_tasks() {
  
   // Install the core required modules and our extra modules
   $core_required = array('block', 'filter', 'node', 'system', 'user');
-  install_include(array_merge(eduglue_profile_modules(), $core_required));
+  install_include(array_merge(eduglu_installer_profile_modules(), $core_required));
  
   // Enable default theme
   install_default_theme("dewey");
