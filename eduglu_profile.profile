@@ -21,17 +21,70 @@ function eduglu_profile_profile_details() {
  */
 function eduglu_profile_profile_modules() {
   return array(
-    /* optional core */
-    /* other contrib */ 
-    'install_profile_api', 'admin_menu', 'advanced_help',
-    'backup_migrate', 'block', 'blog', 'book', 'cacherouter', 'comment', 'comment_upload', 'contact', 'content', 'content_copy', 'content_permissions',
-    'content_profile', 'content_taxonomy', 'content_taxonomy_autocomplete', 'content_taxonomy_options', 'context', 'context_contrib', 'context_ui',
-    'diff', 'fasttoggle', 'features', 'filefield', 'filter', 'help', 'jquery_update', 'link', 'mailalias', 'mailnode', 'markdown', 'masquerade', 'menu', 'modr8', 'node', 'nodereference', 'number', 'og', 'og_access', 'og_actions', ctools, 
-    'og_views', 'optionwidgets', 'path', 'pathauto', 'ping', 'poll', 'purl', 'r4032login', 'realname', 'rules', 'search', 'spaces',
-    'spaces_og', 'syslog', 'system', 'taxonomy', 'text', 'token', 'tracker', 'trigger', 'update', 'upload', 'user', 'userreference', 'views', 'views_ui'
+     // Drupal core
+    'block',
+    'comment',
+    'dblog',
+    'filter',
+    'help',
+    'menu',
+    'node',
+    'openid',
+    'search',
+    'system',
+    'taxonomy',
+    'upload',
+    'user',
+    // Admin menu
+    'admin_menu',
+    // Views
+    'views', 'advanced_help',
+    // Organic Groups
+    'og', 'og_access', 'og_actions', 'og_views',
+    // CTools
+    'ctools',
+    // Context
+    'context', 'context_ui', 'context_layouts',
+    // Features
+    'features',
+    // Image
+    'imageapi', 'imageapi_gd', 'imagecache',
+    // Token
+    'token',
+    // PURL
+    'purl',
+    // Eduglu
+    'eduglu',
+    // Spaces
+    'spaces', 'spaces_og',
+    // Other contrib
+    'r4032login',
   );
 }
- 
+
+/**
+ * Returns an array list of eduglu features (and supporting) modules.
+ */
+function _eduglu_modules() {
+  return array(
+    // Strongarm
+    'strongarm',
+    // CCK
+    'content', 'nodereference', 'text', 'optionwidgets',
+    // OG_Mailing_List
+    'og_mailinglist', 'mailalias',
+    // Content profile
+    'content_profile',
+    // Core eduglu features
+    'eduglue', 'eduglu_groups', 'eduglu_wiki', 'eduglu_discussion', 'eduglu_polls', 'eduglu_solr_search', 'eduglu_user_profile',
+    // Feeds
+    'feeds',
+    // Formats
+    'codefilter', 'markdown',
+    // Others
+    'comment_upload',
+  );
+} 
 /**
 * Implementation of hook_profile_tasks().
 */
