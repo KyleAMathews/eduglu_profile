@@ -12,7 +12,7 @@ function eduglu_profile_profile_details() {
     'description' => 'Social media glue for learners.'
   );
 }
- // Stuff not working -- frontpage not set, node access needs rebuilt, features not enabled, theme not set, background 960 pattern set, content types deleted?
+ // Stuff not working -- 
 /**
  * Return an array of the modules to be enabled when this profile is installed.
  *
@@ -53,6 +53,8 @@ function eduglu_profile_profile_modules() {
     'token',
     // PURL
     'purl',
+    // Strongarm
+    'strongarm',
     // Eduglu
     'eduglu',
     // Spaces
@@ -76,7 +78,7 @@ function _eduglu_modules() {
     // Content profile
     'content_profile',
     // Core eduglu features
-    'eduglu_groups', 'eduglu_wiki', 'eduglu_discussion', 'eduglu_polls', 'eduglu_user_profile',
+    'eduglu_groups', 'eduglu_wiki', 'eduglu_discussion', 'eduglu_polls', 'eduglu_user_profile', 'eduglu_front_page',
     // Feeds
     'feeds',
     // Formats
@@ -159,13 +161,26 @@ function eduglu_profile_profile_tasks(&$task, $url) {
     db_query("UPDATE {blocks} SET region = '' WHERE theme = 'dewey'");
     variable_set('theme_default', 'dewey');
 
-    // Revert key components that are overridden by others on install.
-//    $revert = array(
-//      'mn_core' => array('variable'),
-//    );
-//    features_revert($revert);
+    // In Aegir install processes, we need to init strongarm manually as a
+    // separate page load isn't available to do this for us.
+    if (function_exists('strongarm_init')) {
+      strongarm_init();
+    }
 
-    $task = 'finished';
+    // Revert key components that are overridden by others on install.
+    // Note that this comes after all other processes have run, as some cache
+    // clears/rebuilds actually set variables or other settings that would count
+    // as overrides. See `og_node_type()`.
+    $revert = array(
+      'eduglu' => array('user', 'variable', 'filter'),
+      'eduglu_groups' => array('user', 'variable'),
+      'eduglu_discussions' => array('user', 'variable'),
+      'eduglu_polls' => array('user', 'variable'),
+      'eduglu_wiki' => array('user', 'variable'),
+      'eduglu_user_profile' => array('user', 'variable'),
+      'eduglu_front_page' => array('user', 'variable'),
+    );
+    features_revert($revert);
   }
 
   return $output;
