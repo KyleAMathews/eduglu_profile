@@ -12,7 +12,7 @@ function eduglu_profile_profile_details() {
     'description' => 'Social media glue for learners.'
   );
 }
- 
+ // Stuff not working -- frontpage not set, node access needs rebuilt, features not enabled, theme not set, background 960 pattern set, content types deleted?
 /**
  * Return an array of the modules to be enabled when this profile is installed.
  *
@@ -76,7 +76,7 @@ function _eduglu_modules() {
     // Content profile
     'content_profile',
     // Core eduglu features
-    'eduglue', 'eduglu_groups', 'eduglu_wiki', 'eduglu_discussion', 'eduglu_polls', 'eduglu_solr_search', 'eduglu_user_profile',
+    'eduglu_groups', 'eduglu_wiki', 'eduglu_discussion', 'eduglu_polls', 'eduglu_user_profile',
     // Feeds
     'feeds',
     // Formats
@@ -88,16 +88,16 @@ function _eduglu_modules() {
 /**
  * Implementation of hook_profile_task_list().
  */
-function eduglu_profile_task_list() {
+function eduglu_profile_profile_task_list() {
   return array(
-    'edglu-configure' => st('Eduglu configuration'),
+    'eduglu-configure' => st('Eduglu configuration'),
   );
 }
 
 /**
  * Implementation of hook_profile_tasks().
  */
-function eduglu_profile_tasks(&$task, $url) {
+function eduglu_profile_profile_tasks(&$task, $url) {
   global $install_locale;
 
   // Just in case some of the future tasks adds some output
@@ -136,6 +136,10 @@ function eduglu_profile_tasks(&$task, $url) {
   }
 
   if ($task == 'eduglu-configure') {
+    // This isn't actually necessary as there are no node_access() entries,
+    // but we run it to prevent the "rebuild node access" message from being
+    // shown on install.
+    node_access_rebuild();
 
     // Create the admin role.
     db_query("INSERT INTO {role} (name) VALUES ('%s')", 'admin');
