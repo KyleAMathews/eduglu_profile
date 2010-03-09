@@ -9,7 +9,7 @@
 function eduglu_profile_profile_details() {
   return array(
     'name' => 'Eduglu',
-    'description' => 'Social media glue for education.'
+    'description' => 'Social media glue for learners.'
   );
 }
  
@@ -44,7 +44,7 @@ function eduglu_profile_profile_modules() {
     // CTools
     'ctools',
     // Context
-    'context', 'context_ui', 'context_layouts',
+    'context', 'context_ui',
     // Features
     'features',
     // Image
