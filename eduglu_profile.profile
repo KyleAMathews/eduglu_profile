@@ -12,7 +12,7 @@ function eduglu_profile_profile_details() {
     'description' => 'Social media glue for learners.'
   );
 }
- // Stuff not working -- 
+ // Stuff not working -- can't create stuff -- context not set? permissions?, uprofile needs to be set as the content profile + kill profile content type
 /**
  * Return an array of the modules to be enabled when this profile is installed.
  *
@@ -53,14 +53,10 @@ function eduglu_profile_profile_modules() {
     'token',
     // PURL
     'purl',
-    // Strongarm
-    'strongarm',
-    // Eduglu
-    'eduglu',
     // Spaces
     'spaces', 'spaces_og',
     // Other contrib
-    'r4032login',
+    'r4032login', 'jquery_update',
   );
 }
 
@@ -78,7 +74,7 @@ function _eduglu_modules() {
     // Content profile
     'content_profile',
     // Core eduglu features
-    'eduglu_groups', 'eduglu_wiki', 'eduglu_discussion', 'eduglu_polls', 'eduglu_user_profile', 'eduglu_front_page',
+    'eduglu_core', 'eduglu_groups', 'eduglu_wiki', 'eduglu_discussion', 'eduglu_polls', 'eduglu_user_profile', 'eduglu_front_page',
     // Feeds
     'feeds',
     // Formats
@@ -172,7 +168,7 @@ function eduglu_profile_profile_tasks(&$task, $url) {
     // clears/rebuilds actually set variables or other settings that would count
     // as overrides. See `og_node_type()`.
     $revert = array(
-      'eduglu' => array('user', 'variable', 'filter'),
+      'eduglu_core' => array('variable'),
       'eduglu_groups' => array('user', 'variable'),
       'eduglu_discussions' => array('user', 'variable'),
       'eduglu_polls' => array('user', 'variable'),
@@ -181,6 +177,9 @@ function eduglu_profile_profile_tasks(&$task, $url) {
       'eduglu_front_page' => array('user', 'variable'),
     );
     features_revert($revert);
+
+    // Tell installer we're finished.
+    variable_set('install_task', 'profile-finished');
   }
 
   return $output;
