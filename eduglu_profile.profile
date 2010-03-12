@@ -9,11 +9,11 @@
 function eduglu_profile_profile_details() {
   return array(
     'name' => 'Eduglu',
-    'description' => 'Social media glue for learners.'
+    'description' => 'Social media glue for groups of learners.'
   );
 }
- // Stuff not working -- can't create stuff -- context not set? permissions?, uprofile needs to be set as the content profile + kill profile content type
-/**
+ //  remove "my feed" for anonymous users + change "my groups" to "groups" which links to the groups page, permissions, new front page thing, default picture
+/** 
  * Return an array of the modules to be enabled when this profile is installed.
  *
  * @return
@@ -38,17 +38,17 @@ function eduglu_profile_profile_modules() {
     // Admin menu
     'admin_menu',
     // Views
-    'views', 'advanced_help',
+    'views', 'views_ui', 'advanced_help',
     // Organic Groups
     'og', 'og_access', 'og_actions', 'og_views',
     // CTools
     'ctools',
     // Context
-    'context', 'context_ui',
+    'context', 'context_contrib', 'context_ui',
     // Features
     'features',
     // Image
-    'imageapi', 'imageapi_gd', 'imagecache',
+    'imageapi', 'imageapi_gd', 'imagecache', 'imagecache_profiles',
     // Token
     'token',
     // PURL
@@ -68,7 +68,7 @@ function _eduglu_modules() {
     // Strongarm
     'strongarm',
     // CCK
-    'content', 'nodereference', 'text', 'optionwidgets',
+    'content', 'nodereference', 'text', 'optionwidgets', 'link',
     // OG_Mailing_List
     'og_mailinglist', 'mailalias',
     // Content profile
@@ -145,6 +145,51 @@ function eduglu_profile_profile_tasks(&$task, $url) {
     // Other variables worth setting.
     variable_set('site_footer', 'Powered by <a href="http://eduglu.com">Eduglu</a>.');
     variable_set('site_frontpage', 'frontpage');
+
+    // Add menu items to secondary-links
+    $my_feed = array(
+      'menu_name' => 'secondary-links',
+      'options' => array('purl' => 'disabled', 'attributes' => array('title' => 'my feed')),
+      'link_title' => 'my feed',
+      'link_path' => '<front>',
+      'module' => 'eduglu_core',
+      'customized' => 1,
+      'plid' => 0,
+      'weight' => 0,
+      'expanded' => 0,
+    );
+    $my_groups = array(
+      'menu_name' => 'secondary-links',
+      'options' => array('purl' => 'disabled', 'attributes' => array('title' => 'my groups')),
+      'link_title' => 'my groups',
+      'link_path' => 'og/my',
+      'module' => 'eduglu_core',
+      'customized' => 1,
+      'plid' => 0,
+      'weight' => 0,
+      'expanded' => 0,
+    );
+    menu_link_save($my_feed);
+    menu_link_save($my_groups);
+
+    // Add freetagging vocabulary
+    $vocab = array(
+      'name' => 'Keywords',
+      'multiple' => 0,
+      'required' => 0,
+      'hierarchy' => 0,
+      'relations' => 0,
+      'module' => 'event',
+      'weight' => 0,
+      'nodes' => array('story' => 1, 'poll' => 1, 'wiki' => 1),
+      'tags' => TRUE,
+      'help' => t('Enter tags related to your post.'),
+    );
+    taxonomy_save_vocabulary($vocab);
+
+    // Delete profile node type created by Content Profile as we define our own
+    // User profile node type.
+    node_type_delete('profile');
 
     // Clear caches.
     drupal_flush_all_caches();
