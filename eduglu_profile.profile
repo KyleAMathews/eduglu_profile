@@ -12,7 +12,7 @@ function eduglu_profile_profile_details() {
     'description' => 'Social media glue for groups of learners.'
   );
 }
- //  remove "my feed" for anonymous users + change "my groups" to "groups" which links to the groups page, permissions, new front page thing, default picture
+ //  remove "my feed" for anonymous users + change "my groups" to "groups" which links to the groups page, permissions, new front page thing, default picture, install profile not finishing, change recent activity view so it shows something intead of page not found
 /** 
  * Return an array of the modules to be enabled when this profile is installed.
  *
@@ -74,7 +74,7 @@ function _eduglu_modules() {
     // Content profile
     'content_profile',
     // Core eduglu features
-    'eduglu_core', 'eduglu_groups', 'eduglu_wiki', 'eduglu_discussion', 'eduglu_polls', 'eduglu_user_profile', 'eduglu_front_page',
+    'eduglu_core', 'eduglu_groups', 'eduglu_wiki', 'eduglu_discussion', 'eduglu_polls', 'eduglu_members', 'eduglu_front_page',
     // Feeds
     'feeds',
     // Formats
