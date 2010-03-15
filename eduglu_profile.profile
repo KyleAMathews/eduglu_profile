@@ -12,8 +12,8 @@ function eduglu_profile_profile_details() {
     'description' => 'Social media glue for groups of learners.'
   );
 }
- //  remove "my feed" for anonymous users + change "my groups" to "groups" which links to the groups page, permissions, new front page thing, default picture, install profile not finishing, change recent activity view so it shows something intead of page not found
-/** 
+ //  remove "my feed" for anonymous users + change "my groups" to "groups" which links to the groups page, 
+/** figure out maintain git branches in parallel,
  * Return an array of the modules to be enabled when this profile is installed.
  *
  * @return
@@ -30,6 +30,7 @@ function eduglu_profile_profile_modules() {
     'menu',
     'node',
     'openid',
+    'poll',
     'search',
     'system',
     'taxonomy',
