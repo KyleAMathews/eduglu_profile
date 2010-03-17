@@ -34,6 +34,7 @@ function eduglu_profile_profile_modules() {
     'search',
     'system',
     'taxonomy',
+    'update',
     'upload',
     'user',
     // Admin menu
