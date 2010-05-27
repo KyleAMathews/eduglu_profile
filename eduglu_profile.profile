@@ -215,6 +215,7 @@ function _eduglu_configure() {
   db_query("UPDATE {system} SET status = 1 WHERE type = 'theme' AND name = 'dewey'");
   db_query("UPDATE {blocks} SET region = '' WHERE theme = 'dewey'");
   variable_set('theme_default', 'dewey');
+  variable_set('admin_theme', 'rubik');
 
   // In Aegir install processes, we need to init strongarm manually as a
   // separate page load isn't available to do this for us.
