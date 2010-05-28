@@ -82,7 +82,7 @@ function _eduglu_modules() {
     // Formats
     'codefilter', 'markdown', 'ed_readmore', 'vertical_tabs', 'better_formats',
     // Others
-    'comment_upload',
+    'comment_upload', 'flot', 'libraries'
   );
 } 
 /**
@@ -106,6 +106,10 @@ function eduglu_profile_profile_tasks(&$task, $url) {
   if ($task == 'profile') {
     $modules = _eduglu_modules();
     $files = module_rebuild_cache();
+    
+    // Clear caches.
+    drupal_flush_all_caches();
+    
     $operations = array();
     foreach ($modules as $module) {
       $operations[] = array('_install_module_batch', array($module, $files[$module]->info['name']));
