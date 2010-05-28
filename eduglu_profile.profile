@@ -82,7 +82,7 @@ function _eduglu_modules() {
     // Formats
     'codefilter', 'markdown', 'ed_readmore', 'vertical_tabs', 'better_formats',
     // Others
-    'comment_upload', 'flot', 'libraries'
+    'comment_upload', 'flot', 'libraries', 'querypath',
   );
 } 
 /**
