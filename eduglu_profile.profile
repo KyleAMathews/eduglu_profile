@@ -56,7 +56,7 @@ function eduglu_profile_profile_modules() {
     // PURL
     'purl',
     // Spaces
-    'spaces', 'spaces_og', 'spaces_ui', 'spaces_dashboard',
+    'spaces', 'spaces_og', 'spaces_ui', 'spaces_dashboard', 'spaces_user',
     // Other contrib
     'r4032login', 'search404', 'jquery_update', 'jquery_ui',
   );
