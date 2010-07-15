@@ -165,11 +165,11 @@ function _eduglu_configure() {
   variable_set('site_frontpage', 'frontpage');
 
   // Add menu items to secondary-links
-  $my_feed = array(
+  $dashboard = array(
     'menu_name' => 'secondary-links',
-    'options' => array('purl' => 'disabled', 'attributes' => array('title' => 'my feed')),
-    'link_title' => 'my feed',
-    'link_path' => '<front>',
+    'options' => array('purl' => 'disabled', 'attributes' => array('title' => 'dashboard')),
+    'link_title' => 'dashboard',
+    'link_path' => 'dashboard',
     'module' => 'eduglu_core',
     'customized' => 1,
     'plid' => 0,
@@ -187,7 +187,7 @@ function _eduglu_configure() {
     'weight' => 0,
     'expanded' => 0,
   );
-  menu_link_save($my_feed);
+  menu_link_save($dashboard);
   menu_link_save($my_groups);
 
   // Add freetagging vocabulary
