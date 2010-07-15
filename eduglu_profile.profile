@@ -227,6 +227,7 @@ function _eduglu_configure() {
   foreach ($types as $type) {
     $type = (object) _node_type_set_defaults($type);
     node_type_save($type);
+  }
 
   // Clear caches.
   drupal_flush_all_caches();
@@ -262,6 +263,7 @@ function _eduglu_configure() {
   );
   features_revert($revert);  
 }
+
 /**
  * Finished callback for the modules install batch.
  */
