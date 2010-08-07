@@ -39,6 +39,8 @@ function eduglu_profile_profile_modules() {
     'user',
     // Admin
     'admin',
+    // Date
+    'date_api', 'date_timezone',
     // Views
     'views', 'views_ui', 'advanced_help',
     // Organic Groups
@@ -58,7 +60,7 @@ function eduglu_profile_profile_modules() {
     // Spaces
     'spaces', 'spaces_og', 'spaces_ui', 'spaces_dashboard', 'spaces_user',
     // Other contrib
-    'date', 'r4032login', 'search404', 'jquery_update', 'jquery_ui',
+    'r4032login', 'search404', 'jquery_update', 'jquery_ui',
   );
 }
 
