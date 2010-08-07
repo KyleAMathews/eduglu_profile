@@ -160,6 +160,10 @@ function _eduglu_configure() {
   // Create the admin role.
   db_query("INSERT INTO {role} (name) VALUES ('%s')", 'admin');
 
+  // Create user picture directory
+  $picture_path = file_create_path(variable_get('user_picture_path', 'pictures'));
+  file_check_directory($picture_path, 1, 'user_picture_path');
+
   // Other variables worth setting.
   variable_set('site_footer', 'Powered by <a href="http://eduglu.com">Eduglu</a>.');
   variable_set('site_frontpage', 'frontpage');
@@ -235,9 +239,9 @@ function _eduglu_configure() {
   // Enable the right theme. This must be handled after drupal_flush_all_caches()
   // which rebuilds the system table based on a stale static cache,
   // blowing away our changes.
+  db_query("UPDATE {blocks} SET status = 0, region = ''"); // disable all DB blocks
   db_query("UPDATE {system} SET status = 0 WHERE type = 'theme'");
   db_query("UPDATE {system} SET status = 1 WHERE type = 'theme' AND name = 'dewey'");
-  db_query("UPDATE {blocks} SET region = '' WHERE theme = 'dewey'");
   variable_set('theme_default', 'dewey');
   variable_set('admin_theme', 'rubik');
 
@@ -283,3 +287,27 @@ function system_form_install_select_profile_form_alter(&$form, $form_state) {
     $form['profile'][$key]['#value'] = 'eduglu_profile';
   }
 }
+
+/**
+ * Alter the install profile configuration form and provide timezone location options.
+ */
+function system_form_install_configure_form_alter(&$form, $form_state) {
+  $form['site_information']['site_name']['#default_value'] = 'Open Atrium';
+  $form['site_information']['site_mail']['#default_value'] = 'admin@'. $_SERVER['HTTP_HOST'];
+  $form['admin_account']['account']['name']['#default_value'] = 'admin';
+  $form['admin_account']['account']['mail']['#default_value'] = 'admin@'. $_SERVER['HTTP_HOST'];
+
+  if (function_exists('date_timezone_names') && function_exists('date_timezone_update_site')) {
+    $form['server_settings']['date_default_timezone']['#access'] = FALSE;
+    $form['server_settings']['#element_validate'] = array('date_timezone_update_site');
+    $form['server_settings']['date_default_timezone_name'] = array(
+      '#type' => 'select',
+      '#title' => t('Default time zone'),
+      '#default_value' => NULL,
+      '#options' => date_timezone_names(FALSE, TRUE),
+      '#description' => t('Select the default site time zone. If in doubt, choose the timezone that is closest to your location which has the same rules for daylight saving time.'),
+      '#required' => TRUE,
+    );
+  }
+}
+
