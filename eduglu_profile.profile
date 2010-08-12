@@ -78,7 +78,7 @@ function _eduglu_modules() {
     // Content profile
     'content_profile',
     // Core eduglu features
-    'eduglu_core', 'eduglu_groups', 'atrium_book', 'eduglu_discussion', 'eduglu_polls', 'eduglu_members', 'eduglu_front_page', 'eduglu_about', 'eduglu_welcome',
+    'eduglu_core', 'eduglu_groups', 'atrium_book', 'eduglu_discussion', 'eduglu_polls', 'eduglu_members', 'eduglu_front_page', 'eduglu_about', 'eduglu_welcome', 'eduglu_quiz',
     // Feeds
     'feeds',
     // Formats
@@ -266,6 +266,7 @@ function _eduglu_configure() {
     'eduglu_user_profile' => array('user', 'variable'),
     'eduglu_front_page' => array('user', 'variable'),
     'eduglu_welcome' => array('user', 'variable'),
+    'eduglu_quiz' => array('user', 'variable'),
   );
   features_revert($revert);  
 }
