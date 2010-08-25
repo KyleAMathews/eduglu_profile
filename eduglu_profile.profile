@@ -35,7 +35,6 @@ function eduglu_profile_profile_modules() {
     'system',
     'taxonomy',
     'update',
-    'upload',
     'user',
     // Admin
     'admin',
@@ -60,7 +59,7 @@ function eduglu_profile_profile_modules() {
     // Spaces
     'spaces', 'spaces_og', 'spaces_ui', 'spaces_dashboard', 'spaces_user',
     // Other contrib
-    'r4032login', 'search404', 'jquery_update', 'jquery_ui', 'itweak_upload', 'outline_designer', 'outline_designer_og',
+    'r4032login', 'search404', 'jquery_update', 'jquery_ui', 'outline_designer', 'outline_designer_og',
   );
 }
 
@@ -72,7 +71,7 @@ function _eduglu_modules() {
     // Strongarm
     'strongarm',
     // CCK
-    'content', 'nodereference', 'text', 'optionwidgets', 'link',
+    'content', 'nodereference', 'text', 'optionwidgets', 'link', 'filefield',
     // OG_Mailing_List
     'og_mailinglist', 'mailalias',
     // Content profile
@@ -84,7 +83,7 @@ function _eduglu_modules() {
     // Formats
     'codefilter', 'markdown', 'ed_readmore', 'vertical_tabs', 'better_formats',
     // Others
-    'comment_upload', 'flot', 'libraries', 'querypath',
+    'flot', 'libraries', 'querypath',
   );
 } 
 /**
@@ -260,7 +259,7 @@ function _eduglu_configure() {
   $revert = array(
     'eduglu_core' => array('variable'),
     'eduglu_groups' => array('user', 'variable'),
-    'eduglu_discussions' => array('user', 'variable'),
+    'eduglu_discussions' => array('user', 'variable', 'content'),
     'eduglu_polls' => array('user', 'variable'),
     'atrium_book' => array('user', 'variable'),
     'eduglu_user_profile' => array('user', 'variable'),
