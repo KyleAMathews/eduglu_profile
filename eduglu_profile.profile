@@ -41,7 +41,7 @@ function eduglu_profile_profile_modules() {
     // Date
     'date_api', 'date_timezone',
     // Views
-    'views', 'views_ui', 'advanced_help',
+    'views', 'advanced_help', 'views_bulk_operations',
     // Organic Groups
     'og', 'og_access', 'og_actions', 'og_views',
     // CTools
