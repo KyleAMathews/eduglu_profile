@@ -158,6 +158,13 @@ function _eduglu_configure() {
   // shown on install.
   node_access_rebuild();
 
+  // Remove default input filter formats
+  $result = db_query("SELECT * FROM {filter_formats} WHERE name IN ('%s', '%s')", 'Filtered HTML', 'Full HTML');
+  while ($row = db_fetch_object($result)) {
+    db_query("DELETE FROM {filter_formats} WHERE format = %d", $row->format);
+    db_query("DELETE FROM {filters} WHERE format = %d", $row->format);
+  }
+
   // Create the admin role.
   db_query("INSERT INTO {role} (name) VALUES ('%s')", 'admin');
 
