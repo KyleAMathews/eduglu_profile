@@ -51,7 +51,7 @@ function eduglu_profile_profile_modules() {
     // Features
     'features',
     // Image
-    'imageapi', 'imageapi_gd', 'imagecache', 'imagecache_profiles',
+    'imageapi', 'imageapi_gd', 'imagecache', 'imagecache_profiles', 'smartcrop',
     // Token
     'token',
     // PURL
@@ -59,7 +59,7 @@ function eduglu_profile_profile_modules() {
     // Spaces
     'spaces', 'spaces_og', 'spaces_ui', 'spaces_dashboard', 'spaces_user',
     // Other contrib
-    'r4032login', 'search404', 'jquery_update', 'jquery_ui', 'outline_designer', 'outline_designer_og',
+    'r4032login', 'search404', 'jquery_update', 'jquery_ui', 'outline_designer', 'outline_designer_og', 'transliteration', 'typogrify',
   );
 }
 
