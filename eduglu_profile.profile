@@ -59,7 +59,7 @@ function eduglu_profile_profile_modules() {
     // Spaces
     'spaces', 'spaces_og', 'spaces_ui', 'spaces_dashboard', 'spaces_user',
     // Other contrib
-    'r4032login', 'search404', 'jquery_update', 'jquery_ui', 'outline_designer', 'outline_designer_og', 'transliteration', 'typogrify', 'realname',
+    'r4032login', 'wysiwyg', 'search404', 'jquery_update', 'jquery_ui', 'outline_designer', 'outline_designer_og', 'transliteration', 'typogrify', 'realname',
   );
 }
 
@@ -81,7 +81,7 @@ function _eduglu_modules() {
     // Feeds
     'feeds',
     // Formats
-    'codefilter', 'markdown', 'ed_readmore', 'vertical_tabs', 'better_formats',
+    'codefilter', 'ed_readmore', 'vertical_tabs', 'better_formats',
     // Others
     'flot', 'libraries', 'querypath',
   );
