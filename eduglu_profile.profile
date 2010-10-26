@@ -177,10 +177,10 @@ function _eduglu_configure() {
   variable_set('site_frontpage', 'frontpage');
 
   // Add menu items to secondary-links
-  $dashboard = array(
+  $home = array(
     'menu_name' => 'secondary-links',
     'options' => array('purl' => 'disabled', 'attributes' => array('title' => 'dashboard')),
-    'link_title' => 'dashboard',
+    'link_title' => 'home',
     'link_path' => 'dashboard',
     'module' => 'eduglu_core',
     'customized' => 1,
@@ -188,19 +188,7 @@ function _eduglu_configure() {
     'weight' => 0,
     'expanded' => 0,
   );
-  $my_groups = array(
-    'menu_name' => 'secondary-links',
-    'options' => array('purl' => 'disabled', 'attributes' => array('title' => 'my groups')),
-    'link_title' => 'my groups',
-    'link_path' => 'og/my',
-    'module' => 'eduglu_core',
-    'customized' => 1,
-    'plid' => 0,
-    'weight' => 0,
-    'expanded' => 0,
-  );
-  menu_link_save($dashboard);
-  menu_link_save($my_groups);
+  menu_link_save($home);
 
   // Add freetagging vocabulary
   $vocab = array(
