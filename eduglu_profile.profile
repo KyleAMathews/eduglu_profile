@@ -77,7 +77,7 @@ function _eduglu_modules() {
     // Content profile
     'content_profile',
     // Core eduglu features
-    'eduglu_core', 'eduglu_groups', 'atrium_book', 'eduglu_discussion', 'eduglu_polls', 'eduglu_members', 'eduglu_front_page', 'eduglu_about', 'eduglu_welcome', 'eduglu_quiz',
+    'eduglu_core', 'eduglu_groups', 'atrium_book', 'eduglu_discussion', 'eduglu_polls', 'eduglu_members', 'eduglu_front_page', 'eduglu_about', 'eduglu_welcome', 'eduglu_quiz', 'top_bar',
     // Feeds
     'feeds',
     // Formats
