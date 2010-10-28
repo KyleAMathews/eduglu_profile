@@ -71,7 +71,7 @@ function _eduglu_modules() {
     // Strongarm
     'strongarm',
     // CCK
-    'content', 'nodereference', 'text', 'optionwidgets', 'link', 'filefield',
+    'content', 'nodereference', 'text', 'optionwidgets', 'link', 'filefield', 'filefield_sources', 'insert',
     // OG_Mailing_List
     'og_mailinglist', 'mailalias',
     // Content profile
