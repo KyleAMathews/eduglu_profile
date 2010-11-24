@@ -179,7 +179,7 @@ function _eduglu_configure() {
   // Add menu items to secondary-links
   $home = array(
     'menu_name' => 'secondary-links',
-    'options' => array('purl' => 'disabled', 'attributes' => array('title' => 'dashboard')),
+    'options' => array('purl' => 'disabled', 'attributes' => array('title' => 'home')),
     'link_title' => 'home',
     'link_path' => 'dashboard',
     'module' => 'eduglu_core',
