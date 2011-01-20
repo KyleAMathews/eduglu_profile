@@ -73,7 +73,7 @@ function _eduglu_modules() {
     // CCK
     'content', 'nodereference', 'text', 'optionwidgets', 'link', 'filefield', 'filefield_sources', 'insert',
     // OG_Mailing_List
-    'og_mailinglist', 'mailalias',
+    'og_mailinglist', 'og_mailinglist_flag', 'mailalias',
     // Content profile
     'content_profile',
     // Core eduglu features
@@ -83,7 +83,7 @@ function _eduglu_modules() {
     // Formats
     'codefilter', 'ed_readmore', 'vertical_tabs', 'better_formats',
     // Others
-    'flot', 'libraries', 'querypath', 'flag',
+    'flot', 'libraries', 'querypath', 'flag', 'tipsy',
   );
 } 
 /**
