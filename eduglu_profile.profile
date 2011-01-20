@@ -36,8 +36,8 @@ function eduglu_profile_profile_modules() {
     'taxonomy',
     'update',
     'user',
-    // Admin
-    'admin',
+    // Admin Menu
+    'admin_menu',
     // Date
     'date_api', 'date_timezone',
     // Views
@@ -83,7 +83,7 @@ function _eduglu_modules() {
     // Formats
     'codefilter', 'ed_readmore', 'vertical_tabs', 'better_formats',
     // Others
-    'flot', 'libraries', 'querypath',
+    'flot', 'libraries', 'querypath', 'flag',
   );
 } 
 /**
@@ -239,7 +239,7 @@ function _eduglu_configure() {
   db_query("UPDATE {system} SET status = 0 WHERE type = 'theme'");
   db_query("UPDATE {system} SET status = 1 WHERE type = 'theme' AND name = 'dewey'");
   variable_set('theme_default', 'dewey');
-  variable_set('admin_theme', 'rubik');
+  variable_set('admin_theme', 'seven');
 
   // In Aegir install processes, we need to init strongarm manually as a
   // separate page load isn't available to do this for us.
