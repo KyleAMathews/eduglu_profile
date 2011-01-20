@@ -174,7 +174,6 @@ function _eduglu_configure() {
 
   // Other variables worth setting.
   variable_set('site_footer', 'Powered by <a href="http://eduglu.com">Eduglu</a>.');
-  variable_set('site_frontpage', 'frontpage');
 
   // Add menu items to secondary-links
   $home = array(
