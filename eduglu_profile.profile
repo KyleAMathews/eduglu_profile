@@ -51,7 +51,7 @@ function eduglu_profile_profile_modules() {
     // Features
     'features',
     // Image
-    'imageapi', 'imageapi_gd', 'imagecache', 'imagecache_profiles', 'smartcrop', 'unique_avatar',
+    'imageapi', 'imageapi_gd', 'imagecache', 'imagecache_profiles', 'unique_avatar',
     // Token
     'token',
     // PURL
