@@ -83,7 +83,7 @@ function _eduglu_modules() {
     // Formats
     'codefilter', 'ed_readmore', 'vertical_tabs', 'better_formats',
     // Others
-    'avatarcrop', 'flot', 'libraries', 'querypath', 'flag', 'tipsy',
+    'avatarcrop', 'flot', 'libraries', 'querypath', 'flag', 'tipsy', 'boxes',
   );
 } 
 /**
